@@ -33,4 +33,12 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 $result = curl_exec($ch);
 curl_close($ch);
 
-var_dump($result);
+@file_put_contents('/var/www/html/install.log', $result);
+
+if (strpos($result, 'DONE.') !== false) {
+    unlink('/var/www/html/install.php');
+    rename('/var/www/html/_config.php', '/var/www/html/config.php');
+    header('Location: /');
+} else {
+    echo 'Failed to install - check install log file for details.';
+}
