@@ -15,10 +15,7 @@ RUN a2enmod rewrite && \
 
 RUN docker-php-ext-install mbstring pdo_mysql
 
-EXPOSE 80
-RUN apache2-foreground
-
 ADD install.php /var/www/html/install.php
-RUN curl http://localhost/install.php >> install.log && \
+RUN php /var/www/html/install.php >> install.log && \
     rm -f /var/www/html/install.php
 ADD config.php /var/www/html/config.php
