@@ -4,8 +4,8 @@ RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
     unzip libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev
 
-ADD https://github.com/flarum/flarum/releases/download/v0.1.0-beta.2/flarum-0.1.0-beta.2.zip /flarum.zip
-RUN unzip /flarum.zip -d /var/www/html && \
+ADD https://github.com/kalcaddle/KODExplorer/archive/master.zip /master.zip
+RUN unzip /master.zip -d /var/www/html && \
     chown -R www-data:www-data /var/www/html
 
 RUN a2enmod rewrite && \
