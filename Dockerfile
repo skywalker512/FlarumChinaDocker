@@ -6,8 +6,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 ADD https://github.com/skywalker512/FlarumChina/archive/master.zip /flarum.zip
 RUN unzip /flarum.zip -d /var/www/html && \
-    mv /var/www/html/FlarumChina-master /var/www/html
-    rm -rf /var/www/htmlFlarumChina-master
+    mv /var/www/html/FlarumChina-master /var/www/html && \
+    rm -rf /var/www/htmlFlarumChina-master && \
     chown -R www-data:www-data /var/www/html
 
 RUN a2enmod rewrite && \
