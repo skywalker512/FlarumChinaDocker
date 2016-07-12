@@ -16,3 +16,5 @@ RUN a2enmod rewrite && \
     docker-php-ext-install gd
 
 RUN docker-php-ext-install mbstring pdo_mysql
+
+ADD .htaccess /var/www/html/.htaccess
