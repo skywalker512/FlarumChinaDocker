@@ -1,6 +1,6 @@
 <?php return array (
     #false
-  'debug' => true,
+  'debug' => $_ENV['WEB_DEBUG'],
   'database' => 
   array (
     'driver' => 'mysql',
