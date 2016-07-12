@@ -1,48 +1,22 @@
-# Flarum
+# FlarumChinaDocker
 
-An unofficial dokku docker image for Flarum.
+一个FlarumChina的Docker镜像
 
-## Installation
+## 安装
 
-### Step 1) Setup dokku
+### 1)适合的Docker平台
+ * daocloud.io
+ * 未知
 
-Start by creating the dokku app, and mariadb database, and link the two.
 
-```
-dokku create flarum
-dokku mariadb:create flarum
-dokku mariadb:link flarum flarum
-```
+### 2) 设置环境变量（必须）
+WEB_DEBUG : 是否运行测试版(true(安装时请使用这个)/false)
+MYSQL_IP : mysql地址（带上3306）
+MYSQL_INSTANCE_NAME ： 数据库名 （若使用daocloud.io不需要）
+MYSQL_USERNAME ： mysql用户名（若使用daocloud.io不需要）
+MYSQL_PASSWORD ： mysql密码（若使用daocloud.io不需要）
+WEB_URL ： 访问域名(http://www.adc.com*没有最后的"/"*)
 
-Now, add a `SITE_URL` config variable pointing to your domain name.
+### 3) 打开首页
 
-```
-dokku config:set flarum SITE_URL=http://example.com
-```
-
-### Step 2) Push the repository
-
-Now, check out the repository and push to your dokku server.
-
-```
-git clone https://github.com/jacobmarshall/dokku-flarum.git dokku-flarum
-cd dokku-flarum
-git remote add dokku dokku@example.com:flarum
-git push dokku master
-```
-
-Sit back and have a cup of tea, the container takes a bit of time to compile some of the dependencies.
-
-### Step 3) Install
-
-Open your browser and navigate to the auto-install script.
-
-`http://example.com/install.php`
-
-It make take a few seconds, but you will be taken to your forum when installation has complete.
-
-If the installation fails, check `http://example.com/install.log` for details.
-
-### Step 4) Login
-
-The default admin credentials are `admin` and `password`. Be sure to change these as soon as the installation has complete.
+请耐心等待，时间较长,若没显示请刷新几遍
