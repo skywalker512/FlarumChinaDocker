@@ -1,13 +1,14 @@
 # FlarumChinaDocker
 
-一个FlarumChina的Docker镜像
+一个FlarumChina的Docker镜像，daocloud专版
 
 ## 安装
-
-### 1)适合的Docker平台
- * daocloud.io
- * 未知
-
+### 1）
+* 首先在dockerhub中搜索FlarumChinaDocker然后进行部署
+* 部署时绑定一个mysql数据库
+* 按正常安装之后删除容器
+* 然后再次进行部署，绑定相同的mysql数据库
+* 进行第2步
 
 ### 2) 设置环境变量（必须）
         WEB_DEBUG : 是否运行测试版(true(安装时请使用这个)/false)
