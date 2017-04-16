@@ -6,7 +6,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 ADD https://github.com/kalcaddle/KODExplorer/archive/master.zip /file.zip
 RUN unzip /file.zip -d /var/www/html && \
-    mv /var/www/html/KODExplorer-master /var/www/html/file  && \
+    mv /var/www/html/KodExplorer-master /var/www/html/file  && \
     chown -R www-data:www-data /var/www/html
 
 RUN a2enmod rewrite && \
