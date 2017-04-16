@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM daocloud.io/php:7.1-apache
 
 RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -18,3 +18,4 @@ RUN docker-php-ext-install mbstring pdo_mysql mysqli
 
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
+
