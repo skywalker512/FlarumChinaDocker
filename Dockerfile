@@ -4,7 +4,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 unzip libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev
 
-chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html
 
 RUN a2enmod rewrite && \
     docker-php-ext-install iconv mcrypt && \
