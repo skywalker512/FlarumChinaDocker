@@ -2,19 +2,18 @@ FROM php:7.1-apache
 
 RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    unzip libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev
+unzip libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev
 
-ADD https://github.com/skywalker512/FlarumChina/archive/master.zip /flarum.zip
-RUN unzip /flarum.zip -d /var/www/html && \
-    cp -r /var/www/html/FlarumChina-master/* /var/www/html && \
-    rm -rf /var/www/html/FlarumChina-master && \
-    chown -R www-data:www-data /var/www/html
+chown -R www-data:www-data /var/www/html
 
 RUN a2enmod rewrite && \
     docker-php-ext-install iconv mcrypt && \
     docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
     docker-php-ext-install gd
 
-RUN docker-php-ext-install mbstring pdo_mysql pdo_pgsql
+# Install Postgre PDO
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql
 
-ADD .htaccess /var/www/html/.htaccess
+RUN docker-php-ext-install mbstring pdo_mysql
