@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.1
 
 RUN apt-get update && apt-get -y upgrade
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
