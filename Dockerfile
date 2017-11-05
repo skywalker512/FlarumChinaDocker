@@ -1,5 +1,6 @@
 FROM php:7.1-apache
 
+RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \
 unzip libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev
 
